@@ -1,0 +1,21 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Tines Team Destruction
+description: |-
+  Detect when a user has destroyed a team in Tines.
+  This can indicate potential data destruction or
+  unauthorized organizational changes.
+enabled: true
+severity: Low
+query_text: |-
+  %ingest.source_type:tines
+  operation_name:TeamDestruction
+  | groupbycount(user_email)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- low_severity_alerts
+tags:
+- tactics.ta0040.impact
+- techniques.t1485.data_destruction
+- source.tines

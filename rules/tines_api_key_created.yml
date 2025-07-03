@@ -1,0 +1,20 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Tines API Keys Created
+description: |-
+  Detect when Tines API Keys are created.
+enabled: true
+severity: Medium
+query_text: |-
+  %ingest.source_type:tines
+  operation_name:AuthenticationTokenCreation
+  inputs.inputs.isServiceToken:true
+  | groupbycount(user_email)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- medium_severity_alerts
+tags:
+- tactics.ta0001.initial_access
+- techniques.t1078.valid_accounts
+- source.tines

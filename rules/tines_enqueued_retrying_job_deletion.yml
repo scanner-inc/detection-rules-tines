@@ -1,0 +1,20 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Tines Enqueued/Retrying Job Deletion
+description: |-
+  Detect when currently enqueued or retrying jobs are cleared in Tines.
+  This can indicate potential data destruction or unauthorized job management.
+enabled: true
+severity: Low
+query_text: |-
+  %ingest.source_type:tines
+  operation_name:(JobsQueuedDeletion JobsRetryingDeletion)
+  | groupbycount(user_email)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- low_severity_alerts
+tags:
+- tactics.ta0040.impact
+- techniques.t1485.data_destruction
+- source.tines

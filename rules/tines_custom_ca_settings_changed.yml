@@ -1,0 +1,21 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Tines Custom Certificate Authority Setting Changed
+description: |-
+  Detect when Tines Custom Certificate Authority settings are changed.
+  This can indicate potential compromise of certificate infrastructure
+  or unauthorized changes to security controls.
+enabled: true
+severity: High
+query_text: |-
+  %ingest.source_type:tines
+  operation_name:CustomCertificateAuthoritySet
+  | groupbycount(user_email)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- high_severity_alerts
+tags:
+- tactics.ta0005.defense_evasion
+- techniques.t1553.subvert_trust_controls
+- source.tines

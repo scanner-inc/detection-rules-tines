@@ -7,7 +7,7 @@ description: |-
 enabled: true
 severity: Low
 query_text: |-
-  %ingest.source_type:tines
+  %ingest.source_type:"tines:audit"
   operation_name:GlobalResourceDestruction
   | groupbycount(user_email)
   | where @q.count > 0

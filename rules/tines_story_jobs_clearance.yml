@@ -7,7 +7,7 @@ description: |-
 enabled: true
 severity: Low
 query_text: |-
-  %ingest.source_type:"tines:audit"
+  %ingest.source_type:tines
   operation_name:StoryJobsClearance
   | groupbycount(user_email)
   | where @q.count > 0

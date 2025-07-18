@@ -7,7 +7,7 @@ description: |-
 enabled: true
 severity: Medium
 query_text: |-
-  %ingest.source_type:"tines:audit"
+  %ingest.source_type:tines
   operation_name:ActionsDisabledChange
   | groupbycount(user_email)
   | where @q.count > 0

@@ -5,7 +5,7 @@ description: |-
 enabled: true
 severity: Medium
 query_text: |-
-  %ingest.source_type:tines
+  @scnr.source_type:tines
   operation_name:AuthenticationTokenCreation
   inputs.inputs.isServiceToken:true
   | groupbycount(user_email)

@@ -2,7 +2,6 @@
 name: Tines API Keys Created
 description: |-
   Detect when Tines API Keys are created.
-enabled: true
 severity: Medium
 query_text: |-
   @scnr.source_type:tines

@@ -4,7 +4,6 @@ description: |-
   Detect when a Tines user has destroyed a global resource.
   This can indicate potential data destruction or unauthorized
   resource deletion.
-enabled: true
 severity: Low
 query_text: |-
   @scnr.source_type:tines

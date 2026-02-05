@@ -4,7 +4,6 @@ description: |-
   Detect when a user has destroyed a team in Tines.
   This can indicate potential data destruction or
   unauthorized organizational changes.
-enabled: true
 severity: Low
 query_text: |-
   @scnr.source_type:tines

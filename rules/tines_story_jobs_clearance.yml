@@ -4,7 +4,6 @@ description: |-
   Detect when a user has cleared story jobs in Tines.
   This can indicate potential data destruction or
   unauthorized workflow management.
-enabled: true
 severity: Low
 query_text: |-
   @scnr.source_type:tines

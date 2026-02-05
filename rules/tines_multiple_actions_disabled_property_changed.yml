@@ -4,7 +4,6 @@ description: |-
   Detect when multiple Tines Actions have their "Disabled" property changed.
   This can indicate potential disruption of automation workflows or security
   controls.
-enabled: true
 severity: Medium
 query_text: |-
   @scnr.source_type:tines

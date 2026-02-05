@@ -4,7 +4,6 @@ description: |-
   Detect when Tines Custom Certificate Authority settings are changed.
   This can indicate potential compromise of certificate infrastructure
   or unauthorized changes to security controls.
-enabled: true
 severity: High
 query_text: |-
   @scnr.source_type:tines

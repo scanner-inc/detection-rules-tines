@@ -3,7 +3,6 @@ name: Tines Enqueued/Retrying Job Deletion
 description: |-
   Detect when currently enqueued or retrying jobs are cleared in Tines.
   This can indicate potential data destruction or unauthorized job management.
-enabled: true
 severity: Low
 query_text: |-
   @scnr.source_type:tines

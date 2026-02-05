@@ -4,7 +4,6 @@ description: |-
   Detect when Tines SSO settings are changed. This can indicate
   potential compromise of authentication infrastructure or unauthorized
   changes to access controls.
-enabled: true
 severity: High
 query_text: |-
   @scnr.source_type:tines
